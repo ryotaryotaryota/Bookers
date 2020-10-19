@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+<div class="chat">
+  <h1>DM一覧</h1></br>
+  <h3>チャットをする人を選んでください</h3></br>
+  <hr>
+  <% @anotherEntries.each do |e| %>
+    <%= link_to room_path(e.room.id) do %>
+      <%= image_tag e.user.image_url, size:"40×40" if e.user.image? %><h2><%= e.user.name %></h2>
+    <% end %></br>
+    <%= Message.find_by(id: e.room.message_ids.last).content %>
+    <hr>
+  <% end %>
+</div>

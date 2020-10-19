@@ -1,0 +1,68 @@
+.event-image {
+    width: 100%;
+    height: 80px;
+}
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding-top:10px;
+    border-radius: 10px;
+    background-color: rgb(222, 230, 238);
+    text-align: center;
+}
+.books-container { 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.book {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 3%;
+    width: 25%;
+}
+.book-photo img {
+    width: 100%;
+}
+.book-photo {
+    position: relative;
+}
+.book-photo p {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    padding-right: 3%;
+    color: white;
+    background-color: black;
+    opacity: 0.8;
+    border-radius: 5px;
+}
+.book-info {
+    width: 100%;
+    background-color: rgb(197, 221, 230);
+    flex-wrap: wrap;
+    border-collapse: collapse;
+}
+.chat {
+    margin: 50px auto;
+    width: 50%;
+    border: solid rgb(222, 230, 238);
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(222, 230, 238);
+    padding-top: 10px;
+}
+.indexTag {
+    text-align: center;
+    display: flex;
+}
+input[type="text"] {
+    width: 50%;
+    height: 30px;
+    margin: 20px 0px 30px;
+}
+input[type="submit"] {
+    width: 40px;
+    font-size: 20px;
+    
+}

@@ -1,0 +1,15 @@
+// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.text-center {
+    margin: 50px auto;
+    width: 50%;
+    border: solid rgb(222, 230, 238);
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(222, 230, 238);
+    padding-top: 10px;
+}
+.text-center p {
+    margin: 0px auto;
+}

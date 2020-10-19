@@ -1,0 +1,50 @@
+.top-image {
+    width: 100%;    
+}
+.top-image img {
+    width:100%;
+}
+.about-bookers {
+    padding: 5px;
+}
+.bookers {
+    margin-bottom: 15px;
+    text-align: center;
+    margin: 0% 15% 5% 15%;
+}
+.bookers2 {
+    text-align: center;
+}
+.images {
+    display: flex;
+    margin: 0% 5% 5% 5%;
+}
+.bookers-image {
+    width: 30%;
+    margin:0% 2.5% 0% 2.5%;
+    text-align: center;
+}
+.bookers-image img {
+    width: 100%;
+}
+.regist {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.btn-flat-simple {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    width: 200px;
+    height: auto;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: black;
+    background: #ECECEC;
+    transition: .4s;
+  }
+  .btn-flat-simple:hover {
+    background:#1b1b1b;
+    color: white;
+  }

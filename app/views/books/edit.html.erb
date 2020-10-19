@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag 'edit', :media => "all" %>
+ 
+    <div class="edit-container">
+        <%= form_for @book do |f| %>
+                <div class="title">
+                    <%= f.label :タイトル %>
+                    <%= f.text_field :title, :size => 40 %>
+                </div>
+                <div class="price">
+                    <%= f.label :価格 %>
+                    <%= f.number_field :price, :size => 30 %>
+                </div>
+                <div class="classroom">
+                    <%= f.label :授業 %>
+                    <%= f.text_field :classroom, :size => 50 %>
+                </div>
+                <div class="writer">
+                    <%= f.label :作者 %>
+                    <%= f.text_field :writer, :size => 50 %>
+                </div>
+                <div class="image">
+                    <%= f.label :画像 %>
+                    <%= f.file_field :image %>
+                </div>
+                <div class="comment">
+                    <%= f.label :出品物の状態など %>
+                    <%= f.text_area :comment %>
+                </div>
+            <%= f.submit "出品する" %>
+        <% end %>
+    </div>

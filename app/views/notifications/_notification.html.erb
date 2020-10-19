@@ -1,0 +1,17 @@
+<% visitor = notification.visitor %>
+<% book = notification.book %>
+<div class="user-view clearfix">
+    <%= link_to user_path(notification.visitor_id) do %>
+    <% end %>
+    <%= notification_form(notification) %>
+      <span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span>
+      <br>
+      <% if !@comment.nil? %>
+        <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @comment.comment %></p>
+      <% elsif !@like.nil? %>
+        <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @like.book_id %></p>
+      <% elsif !@message.nil? %>
+        <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @message.text %></p>
+      <% end %>
+      <hr>
+</div>

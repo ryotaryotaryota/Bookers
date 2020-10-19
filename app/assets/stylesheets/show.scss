@@ -1,0 +1,98 @@
+.info {
+    justify-content: center;
+    width: 80%;
+    margin: 50px auto;
+    padding: 10px;
+    background-color: rgb(222, 230, 238);
+    border-radius: 10px;
+}
+.title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+.right {
+    margin-left: 10px;
+    flex-wrap: wrap;
+    border-collapse: collapse;
+    background-color: rgb(197, 221, 230);
+}
+td {
+    border: 1px solid black;
+    padding: 0em 0.5em;
+}
+.bottom {
+    text-align: center;
+    width: 80%;
+    margin: 10px auto;
+    background-color: rgb(222, 230, 238);
+    border-radius: 10px;
+    padding: 10px;
+}
+.my-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 10px;
+}
+.mine img {
+    width: 100%;
+} 
+.book-show {
+    flex-wrap: wrap;
+    border-collapse: collapse;
+    background-color: rgb(197, 221, 230);
+    width: 100%;
+}
+.button {
+    text-align: center;
+}
+.mine {
+    flex-direction: row;
+    margin: 3%;
+    width: 25%;
+    background-color: rgb(222, 230, 238);
+    border-radius: 10px;
+}
+.chats {
+    width: 80%;
+    margin: 10px auto;
+    padding-top: 10px;
+    background-color: rgb(222, 230, 238);
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+}
+.chat-box {
+    display: flex;
+    padding: 5px;
+}
+.chat-hukidashi {
+    text-align: left;
+}
+input[type="text"] {
+    width: 80%;
+    height: 40px;
+}
+.posts {
+    justify-content: center;
+    margin-top: 10px;
+}
+.comment-wrapper {
+    justify-content: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: rgb(222, 230, 238);
+    border-radius: 10px;
+}
+input[type="submit"] {
+    width: 200px;
+    font-size: 20px;
+    margin-top: 20px;
+}

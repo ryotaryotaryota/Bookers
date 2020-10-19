@@ -1,0 +1,51 @@
+.edit {
+    margin: 50px auto;
+    width: 50%;
+    border: solid rgb(222, 230, 238);
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(222, 230, 238);
+    padding-top: 10px;
+}
+.new {
+    margin: 50px auto;
+    width: 50%;
+    border: solid rgb(222, 230, 238);
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(222, 230, 238);
+    padding-top: 10px;
+}
+.field {
+    margin: 10px;
+}
+input[type="text"] {
+    width: 85%;
+    height: 40px;
+}
+input[type="file"] {
+    width: 85%;
+    height: 40px;
+}
+input[type="number"] {
+    width: 85%;
+    height: 40px;
+}
+input[type="email"] {
+    width: 85%;
+    height: 40px;
+}
+input[type="password"] {
+    width: 85%;
+    height: 40px;
+}
+input[type="submit"] {
+    width: 200px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+textarea {
+    resize: vertical;
+    width: 85%;
+    height:120px;
+}

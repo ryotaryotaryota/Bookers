@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <div class="header-left">
+        <%= link_to "Bookers", books_path %>
+        <a href="/top/index"><i class="far fa-question-circle"></i></a>
+      </div>
+      <% if user_signed_in? %>
+        <div class="header-right">
+            <%= link_to "出品する", new_book_path %>
+            <%= link_to "マイページ", user_path(current_user.id) %>
+            <%= link_to "DM", rooms_path %>
+            <%= link_to "お知らせ", notifications_path %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </div>
+      <% else %>
+        <div class="header-right">       
+            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録", new_user_registration_path %>
+        </div>
+      <% end %>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      © 2020 Ryota Takahashi. All Rights Reserved.
+    </footer>
+  </body>
+</html>

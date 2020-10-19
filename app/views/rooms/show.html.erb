@@ -1,0 +1,39 @@
+<%= stylesheet_link_tag 'show', :media => "all" %>
+<div class="left-button">
+  <%= link_to "DM一覧に戻る", rooms_path %>
+</div>
+<h4 class="rooms-title">売買の場所・日時を二人で決めてください。</h4>
+<% @entries.each do |e| %>
+  <div class="user-name">
+    <strong>
+        <a class="rooms-user-link" href="/users/<%= e.user.id %>"><%= e.user.name %>さん</a>
+    </strong>
+  </div>
+<% end %>
+<hr>
+<div class="chats">
+  <h1>個人DMページ</h1>
+  <hr>
+  <div class="chat">
+    <% if @messages.present? %>
+      <% @messages.each do |m| %>
+        <div class="chat-box">
+            <div class="chat-name">
+                <%= m.user.name %>：
+            </div>
+            <div class="chat-hukidashi"> <strong><%= m.content %></strong> <br>
+                <h6><%= m.created_at %></h6>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <hr>
+  <div class="posts">
+    <%= form_for @message do |f| %>
+      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.submit "送信",class: 'form-submit'%>
+    <% end %>
+  </div>
+</div>

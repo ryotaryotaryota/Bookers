@@ -1,0 +1,54 @@
+<%= stylesheet_link_tag 'show', :media => "all" %>
+<div class="info">
+  <div class="title">
+    <h1>書籍詳細</h1>
+  </div>
+  <div class="center">
+    <div class="left">
+      <p><%= image_tag @book.image_url, size: "300×240" %></p>
+    </div>
+    <table class="right">
+      <tr><td><h2>出品者</td><td><a href="/users/<%= @book.user.id %>"><%= @book.user.name %></a></h2></td></tr>
+      <tr><td><h2>題名</td><td>『<%= @book.title %>』</h2></td></tr>
+      <tr><td><h2>価格</td><td><%= @book.price %>円</h2></td></tr>
+      <tr><td><h2>授業</td><td><%= @book.classroom %></h2></td></tr>
+      <tr><td><h2>投稿日</td><td><%= @book.created_at %></h2></td></tr>
+      <tr><td><h2>コメント</td><td><%= @book.comment %></h2></td></tr>
+    </table>
+  </div>
+
+  <div class="button">
+    <% if user_signed_in? && current_user.id == @book.user_id %>
+      <%= link_to "編集する", edit_book_path %>
+      <%= link_to "削除する", book_path, method: :delete %>
+    <% else %>
+      <h3>購入ボタン: <%= @book.likes.count %></h3>
+      <% if current_user.already_liked?(@book) %>
+        <h2>'購入申請済み'</h2> 
+      <% else %>
+        <%= button_to '購入申請をする', book_likes_path(@book) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="comment-wrapper">
+  <div class="title">
+    <h2>コメント一覧</h2>
+  </div>
+  <div class="comment">
+    <hr>
+    <% @comments.each do |c| %>
+      <div>
+        <%= c.user.name unless c.user.blank? %>：<%= c.comment %>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= form_with(model: [@book, @comment], local: true) do |f| %>
+        <%= f.text_area :comment%>
+        <%= button_tag type: "submit" do %>
+          <i class="far fa-comments"></i> コメントする
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

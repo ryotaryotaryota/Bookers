@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag "books_new", :media => "all" %>
+<div class="sell-container">
+    <h1>出品ページ</h1>
+    <%= form_for @book do |f| %>
+        <div class="field">
+            <%= f.label :タイトル %>
+            <%= f.text_field :title, :size => 40 %>
+        </div>
+        <div class="field">
+            <%= f.label :価格 %>
+            <%= f.number_field :price, :size => 30 %>
+        </div>
+        <div class="field">
+            <%= f.label :授業 %>
+            <%= f.text_field :classroom, :size => 50 %>
+        </div>
+        <div class="field">
+            <%= f.label :作者 %>
+            <%= f.text_field :writer, :size => 50 %>
+        </div>
+        <div class="field">
+            <%= f.label :画像 %>
+            <%= f.file_field :image %>
+        </div>
+        <div class="field">
+            <%= f.label :出品物の状態など %>
+            <%= f.text_area :comment %>
+        </div>
+        <%= f.submit "出品する" %>
+    <% end %>
+</div>
