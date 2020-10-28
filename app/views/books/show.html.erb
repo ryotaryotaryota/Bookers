@@ -7,20 +7,27 @@
     <div class="left">
       <p><%= image_tag @book.image_url, size: "300×240" %></p>
     </div>
-    <table class="right">
-      <tr><td><h2>出品者</td><td><a href="/users/<%= @book.user.id %>"><%= @book.user.name %></a></h2></td></tr>
-      <tr><td><h2>題名</td><td>『<%= @book.title %>』</h2></td></tr>
-      <tr><td><h2>価格</td><td><%= @book.price %>円</h2></td></tr>
-      <tr><td><h2>授業</td><td><%= @book.classroom %></h2></td></tr>
-      <tr><td><h2>投稿日</td><td><%= @book.created_at %></h2></td></tr>
-      <tr><td><h2>コメント</td><td><%= @book.comment %></h2></td></tr>
-    </table>
+    <div class="right">
+      <table>
+        <tr><td><h2>出品者</td><td><a href="/users/<%= @book.user.id %>"><%= @book.user.name %></a></h2></td></tr>
+        <tr><td><h2>題名</td><td>『<%= @book.title %>』</h2></td></tr>
+        <tr><td><h2>価格</td><td><%= @book.price %>円</h2></td></tr>
+        <tr><td><h2>授業</td><td><%= @book.classroom %></h2></td></tr>
+        <tr><td><h2>投稿日</td><td><%= @book.created_at %></h2></td></tr>
+        <tr><td><h2>コメント</td><td><%= @book.comment %></h2></td></tr>
+      </table>
+    </div>
   </div>
-
   <div class="button">
     <% if user_signed_in? && current_user.id == @book.user_id %>
-      <%= link_to "編集する", edit_book_path %>
-      <%= link_to "削除する", book_path, method: :delete %>
+      <div class="editDeleteButton">
+        <%= link_to(edit_book_path) do %>
+          <h2><i class="fas fa-pen"></i></h2>
+        <% end %>   
+        <%= link_to(book_path, method: :delete) do %>
+          <h2><i class="fas fa-trash"></i></h2>
+        <% end %> 
+      </div>
     <% else %>
       <h3>購入ボタン: <%= @book.likes.count %></h3>
       <% if current_user.already_liked?(@book) %>

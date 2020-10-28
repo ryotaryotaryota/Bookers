@@ -4,7 +4,9 @@
     <%= form_tag({controller:"books",action:"index"}, method: :get) do %>
         <div class="indexTag">
             <%= text_field_tag :search %>
-            <%= submit_tag '🔍' %>
+            <button type="submit">
+                <h2><i class="fas fa-search"></i></h2>
+            </button>
         </div>
     <% end %>
     <%= page_entries_info @books %>
@@ -12,18 +14,14 @@
     <div class="books-container">
         <% @books.each do |t| %>
             <div class="book">
-                <div class="book-photo">
-                    <%=image_tag t.image_url, size:"200×250" if t.image? %>
-                    <p>￥<%= t.price %></p>
-                </div>
-                <table class="book-info">
-                    <tr><td>題名</td><td>『<%= t.title %>』</td></tr>
-                    <tr><td>授業</td><td><%= t.classroom %></td></tr>
-                </table>
-                <%= link_to "詳細へ", book_path(t.id) %>
-                <% if user_signed_in? && current_user.id == t.user_id %>
-                    <%= link_to "編集する", edit_book_path(t.id) %>
-                    <%= link_to "削除する", book_path(t.id), method: :delete %>
+                <%= link_to(book_path(t.id)) do %>
+                    <div class="book-photo">
+                        <%=image_tag t.image_url, size:"200×250" if t.image? %>
+                        <p>￥<%= t.price %></p>
+                    </div>
+                    <div class="book-info">
+                        『<%= t.title %>』　<%= t.classroom %>
+                    </div>
                 <% end %>
             </div>
             <%= paginate @books %>

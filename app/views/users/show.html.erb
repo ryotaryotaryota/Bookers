@@ -6,31 +6,42 @@
         <% else %>
             <h1><%= @user.name %>さんのページ</h1>
         <% end %>
-
     </div>
     <div class="center">
         <div class="left">
-            <p><%= image_tag @user.image_url, size:"300×240" %></p>
+            <%= image_tag @user.image_url, width:300 if @user.image? %>
         </div>
-        <table class="right">
-            <tr><td><h2>名前</td><td><%= @user.name %></h2></td></tr>
-            <tr><td><h2>学部</td><td><%= @user.faculty %></h2></td></tr>
-            <tr><td><h2>学年</td><td><%= @user.grade %>年生</h2></td></tr>
-            <tr><td><h2>自己紹介</td><td><%= @user.profile %></h2></td></tr>
-        </table>
+        <div class="right">
+            <table>
+                <tr><td><h2>名前</td><td><%= @user.name %></h2></td></tr>
+                <tr><td><h2>学部</td><td><%= @user.faculty %></h2></td></tr>
+                <tr><td><h2>学年</td><td><%= @user.grade %>年生</h2></td></tr>
+                <tr><td><h2>自己紹介</td><td><%= @user.profile %></h2></td></tr>
+            </table>
+        </div>
     </div>
     <div class="button">
         <% if current_user.id == @user.id %>
-            <%= link_to "編集する", edit_user_registration_path %>
+            <%= link_to(edit_user_registration_path) do %>
+                <div class="userEditButton">
+                    <h2><i class="fas fa-pen"></i></h2>
+                </div>
+            <% end %>
         <% else %>
             <% if @isRoom == true %>
-                <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+                <div class="userEditButton">
+                    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg"><h2><i class="far fa-comment-dots"></i><h2></a>
+                </div>
             <% else %>
                 <%= form_for @room do |f| %>
                     <%= fields_for @entry do |e| %>
                         <%= e.hidden_field :user_id, value: @user.id %>
                     <% end %>
-                    <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+                    <button type="submit">
+                        <div class="userEditButton">
+                            <h2><i class="far fa-comment-dots"></i><h2>
+                        </div>
+                    </button>
                 <% end %>
             <% end %>
         <% end %>
@@ -41,18 +52,14 @@
     <div class="books-container">
         <% @user.books.each do |t| %>
             <div class="book">
-                <div class="book-photo">
-                    <%=image_tag t.image_url, size:"200×250" if t.image? %>
-                    <p>￥<%= t.price %></p>
-                </div>
-                <table class="book-info">
-                    <tr><td>題名</td><td>『<%= t.title %>』</td></tr>
-                    <tr><td>授業</td><td><%= t.classroom %></td></tr>
-                </table>
-                <%= link_to "詳細へ", book_path(t.id) %>
-                <% if user_signed_in? && current_user.id == t.user_id %>
-                    <%= link_to "編集する", edit_book_path(t.id) %>
-                    <%= link_to "削除する", book_path(t.id), method: :delete %>
+                <%= link_to(book_path(t.id)) do %>
+                    <div class="book-photo">
+                        <%=image_tag t.image_url, size:"200×250" if t.image? %>
+                        <p>￥<%= t.price %></p>
+                    </div>
+                    <div class="book-info">
+                        『<%= t.title %>』　<%= t.classroom %>
+                    </div>
                 <% end %>
             </div>
         <% end %>

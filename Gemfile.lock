@@ -112,6 +112,8 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    jquery-ui-rails (6.0.1)
+      railties (>= 3.2.16)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -263,6 +265,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   jbuilder (~> 2.7)
+  jquery-ui-rails
   kaminari
   mysql2
   pg

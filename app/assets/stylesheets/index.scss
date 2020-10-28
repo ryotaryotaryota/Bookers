@@ -13,20 +13,39 @@
 .books-container { 
     display: flex;
     justify-content: center;
+    padding: 0% 2% 2%;
     flex-wrap: wrap;
 }
 .book {
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 3%;
-    width: 25%;
+    margin: 1%;
+    width: 150px;
+    border: 2px solid rgb(222, 230, 238);
+}
+.book:hover {
+    border: 2px solid white;
+    transition-duration: 0.3s;
+  }
+.book-photo {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(236, 229, 229);
 }
 .book-photo img {
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+    transition-duration: 0.3s;
 }
-.book-photo {
-    position: relative;
-}
+.book:hover img{
+    opacity: 0.6;
+    transition-duration: 0.3s;
+  }
 .book-photo p {
     position: absolute;
     bottom: 10%;
@@ -38,10 +57,15 @@
     border-radius: 5px;
 }
 .book-info {
-    width: 100%;
-    background-color: rgb(197, 221, 230);
-    flex-wrap: wrap;
-    border-collapse: collapse;
+    width: 150px;
+    height: 40px;
+    font-size: 80%;
+    color: black;
+    background-color: white;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .chat {
     margin: 50px auto;
@@ -56,13 +80,32 @@
     text-align: center;
     display: flex;
 }
-input[type="text"] {
+.indexTag input[type="text"] {
     width: 50%;
     height: 30px;
-    margin: 20px 0px 30px;
+    margin-left: 20%; 
 }
-input[type="submit"] {
-    width: 40px;
-    font-size: 20px;
-    
+.indexTag button[type="submit"] {
+    width: 10%;
+    margin:0 20% 0 0;
+}
+.chatBox {
+    color: black;
+    position: relative;
+    display: flex;
+}
+.chatBoxImage {
+    margin: 2% 10% 2% 5%;  
+    background-color: rgb(236, 229, 229);
+    border: 1px solid white;
+}
+.chatBoxImage image {
+    width: 100%;
+}
+.chatBoxContent {
+    margin: 2% 5% 2% 10%; 
+}
+.chatBox:hover {
+    background-color: rgb(197, 221, 230);
+    transition-duration: 0.3s;
 }
